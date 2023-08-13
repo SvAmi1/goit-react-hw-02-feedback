@@ -1,11 +1,21 @@
-import { Btn } from "./FeedbackOptions.styled"
+import { nanoid } from 'nanoid';
 
-export const FeedbackOptions = () => {
-    return (
-        <>
-            <Btn>Good</Btn>
-            <Btn>Neutral</Btn>
-            <Btn>Bad</Btn>
-        </>
-    )
-}
+export const FeedbackOptions = ({ onChange, onReset, options }) => {
+  return (
+    <div>
+      {options.map(option => (
+        <button
+          key={nanoid()}
+          type="button"
+          onClick={() => onChange(option)}
+        >
+          {option}
+        </button>
+      ))}
+
+      <button type="button" onClick={onReset}>
+        reset
+      </button>
+    </div>
+  );
+};

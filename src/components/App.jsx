@@ -1,8 +1,11 @@
 
 import { Component } from "react"
-// import { render } from "react-dom";
+import { Section } from "./Section/Section";
+import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
+import { Statistics } from "./Statistics/Statistics";
+import { GlobalStyles } from "./GlobalStyles";
 import { Layout } from "./Layout";
-import { FeedbackTitle } from "./FeedbackTitle/FeedbackTitle";
+import { NotificationMessage } from "./NotificationMes/NotificationMes";
 
 export class App extends Component {
   state = {
@@ -11,18 +14,59 @@ export class App extends Component {
     bad: 0,
   }
 
-  countTotalFeedback() {};
+  handleFeedback = type => {
+    this.setState(prevState => {
+      return {
+      [type]: prevState[type] + 1
+  }})
+  };
 
-  countPositiveFeedbackPercentage() {};
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
+     return total;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    const persent = Math.round((good / this.countTotalFeedback()) * 100);
+    return persent;
+  };
+
+  handleReset = () => {
+    this.setState({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+  })
+  };
 
   render () {
+  const { good, neutral, bad } = this.state;
+  const options = ['good', 'neutral', 'bad'];
    return (
     <Layout>
-      <FeedbackTitle/>
-
+    <Section title="Please, leave your feedback">
+      <FeedbackOptions
+        onChange={this.handleFeedback} 
+        onReset={this.handleReset} 
+        options={options}
+      />
+    </Section>
+    <Section title="Statistics">
+      {this.countTotalFeedback === 0 ? (
+      <NotificationMessage message="There is no feedback c" />
+          ) : (
+      <Statistics
+      good={good} 
+      neutral={neutral} 
+      bad={bad} 
+      total={this.countTotalFeedback()} 
+      positivePercentage={this.countPositiveFeedbackPercentage()}
+      />)}
+    </Section>
+    <GlobalStyles/>
     </Layout>
-      
-    
   );
 };
 }
