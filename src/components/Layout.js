@@ -5,7 +5,7 @@ export const Layout = styled.main`
   flex-direction: column;
   gap: 10px;
   padding: 0 15px;
-  max-width: 900px;
+  max-width: 1280px;
   margin: 0 auto;
-  background: #81b4b8;
+  background: #f5f4ce;
 `;
