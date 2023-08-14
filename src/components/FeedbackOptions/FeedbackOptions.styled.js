@@ -6,14 +6,14 @@ export const Btn = styled.button`
   /* border: black; */
   width: 60px;
   height: 20px;
-  border-radius: 4px;
+  border-radius: 14px;
   cursor: pointer;
   background-color: white;
-  /* color: ; */
+ `;
 
-  /* svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  } */
+export const Wrapper = styled.div`
+display: flex;
+fl
+gap: 15px;
+margin: 0 20px;
 `;
