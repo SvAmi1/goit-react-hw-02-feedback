@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Btn = styled.button`
-/* display: flex; */
-  /* margin: 0 10px; */
   padding: 4px;
   /* border: black; */
   width: 60px;
   height: 30px;
-  border-radius: 14px;
+  border-radius: 10px;
   cursor: pointer;
   background-color: white;
  `;

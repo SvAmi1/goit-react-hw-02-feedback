@@ -11,9 +11,9 @@ export const Wrapper = styled.section`
 `;
 
 export const Title = styled.h2`
-d
+
 font-size: 24px;
-margin: 10px;
+margin: 10px auto;
 padding: 4px;
 color: blanchedalmond; 
 `;

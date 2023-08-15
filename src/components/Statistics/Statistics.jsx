@@ -1,4 +1,5 @@
 import { NotificationMessage } from "components/NotificationMes/NotificationMes";
+import { Items } from "./Statistics.styled";
 
 
 export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
@@ -9,31 +10,31 @@ export const Statistics = ({ good, neutral, bad, total, positivePercentage }) =>
   return (
     <div>
         <ul>
-        <li>
+        <Items>
           <p>
             Good: <span>{good}</span>
           </p>
-        </li>
-        <li>
+        </Items>
+        <Items>
           <p>
             Neutral: <span>{neutral}</span>
           </p>
-        </li>
-        <li>
+        </Items>
+        <Items>
           <p>
             Bad: <span>{bad}</span>
           </p>
-        </li>
-        <li>
+        </Items>
+        <Items>
           <p>
             Total: <span>{total}</span>
           </p>
-        </li>
-        <li>
+        </Items>
+        <Items>
           <p>
             Positive feedback: <span>{positivePercentage}%</span>
           </p>
-        </li>
+        </Items>
       </ul>
     </div>
   );
